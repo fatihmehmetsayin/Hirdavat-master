@@ -40,15 +40,15 @@ namespace Hirdavat.Wpf
             bahcemakineleri();
             hobialetleri();
             kategoriygetir();
-            resimgetir();
+            TimerStart();
         }
-        public int sayac=0;
-        public void resimgetir()
+        public int sayac = 0;
+        public void TimerStart()
         {
 
             DispatcherTimer dt = new DispatcherTimer();
 
-            dt.Interval = TimeSpan.FromSeconds(2);
+            dt.Interval = TimeSpan.FromSeconds(5);
 
             dt.Tick += Dt_Tick;
             dt.Start();
@@ -58,22 +58,42 @@ namespace Hirdavat.Wpf
 
         private void Dt_Tick(object sender, EventArgs e)
         {
-            Uc_getir(anasayfagrid, new UC_Anasayfa(sayac));
+          Uc_getirAna(anasayfagrid, new UC_Anasayfa(sayac));
+           
+           Uc_getirYan(gridyan, new UC_Yan(sayac));
             sayac++;
         }
 
-        public void Uc_getir(Grid grd, UserControl userControl)
+        public  void Uc_getirAna(Grid grd, UserControl userControl)
         {
+            
             if (grd.Children.Count > 0)
             {
-                
+
                 grd.Children.Clear();
-              
+
                 anasayfagrid.Children.Add(userControl);
             }
             else
             {
                 anasayfagrid.Children.Add(userControl);
+            }
+
+
+        }
+        public void Uc_getirYan(Grid grd, UserControl userControl)
+        {
+
+            if (grd.Children.Count > 0)
+            {
+
+                grd.Children.Clear();
+
+                gridyan.Children.Add(userControl);
+            }
+            else
+            {
+                gridyan.Children.Add(userControl);
             }
 
 
@@ -328,6 +348,77 @@ namespace Hirdavat.Wpf
         }
 
         private void cmbx2_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
+
+        private void labelsag_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+
+            Uc_getirAna(anasayfagrid, new UC_Anasayfa(sayac));
+            sayac++;
+
+        }
+
+        private void labelsol_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+            Uc_getirAna(anasayfagrid, new UC_Anasayfa(sayac));
+            sayac--;
+        }
+
+        private void labelsag_MouseEnter(object sender, MouseEventArgs e)
+        {
+            labelsag.FontSize = 60;
+        }
+
+        private void labelsag_MouseLeave(object sender, MouseEventArgs e)
+        {
+            labelsag.FontSize = 50;
+        }
+
+        private void labelsol_MouseEnter(object sender, MouseEventArgs e)
+        {
+            labelsol.FontSize = 60;
+
+        }
+
+        private void labelsol_MouseLeave(object sender, MouseEventArgs e)
+        {
+            labelsol.FontSize = 50;
+
+        }
+
+        private void labelsol_MouseDoubleClick_1(object sender, MouseButtonEventArgs e)
+        {
+
+        }
+
+        private void Yan_labelsol_MouseEnter(object sender, MouseEventArgs e)
+        {
+
+        }
+
+        private void Yan_labelsol_MouseLeave(object sender, MouseEventArgs e)
+        {
+
+        }
+
+        private void Yan_labelsol_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+
+        }
+
+        private void Yan_labelsag_MouseLeave(object sender, MouseEventArgs e)
+        {
+
+        }
+
+        private void Yan_labelsag_MouseEnter(object sender, MouseEventArgs e)
+        {
+
+        }
+
+        private void Yan_labelsag_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
 
         }

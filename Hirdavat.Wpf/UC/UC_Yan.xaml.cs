@@ -10,51 +10,44 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using System.Windows.Interop;
-using System.Threading;
-using System.Windows.Threading;
-using Microsoft.VisualBasic;
 
 namespace Hirdavat.Wpf.UC
 {
     /// <summary>
-    /// Interaction logic for UC_Anasayfa.xaml
+    /// Interaction logic for UC_Yan.xaml
     /// </summary>
-    public partial class UC_Anasayfa : UserControl
+    public partial class UC_Yan : UserControl
     {
-
-        public int sayi { get; set; }
-        public UC_Anasayfa(int sayim)
+        public UC_Yan( int sayim)
         {
             InitializeComponent();
             sayi = sayim;
 
         }
+        public int sayi { get; set; }
         BitmapImage resim;
-       
-      
         public void resimdegistir()
         {
             if (sayi % 4 == 0)
             {
                 resim = new BitmapImage(new Uri("https://st1.myideasoft.com/idea/bd/02/myassets/slider_pictures/pictures_2_1.png?revision=1584082159"));
-                AnasayfaResim.Source = resim;
-                
-                
+                YanResim.Source = resim;
+
+
             }
 
             if (sayi % 4 == 1)
             {
                 resim = new BitmapImage(new Uri("https://st2.myideasoft.com/idea/bd/02/myassets/slider_pictures/pictures_2_2.png?revision=1584082159"));
-                AnasayfaResim.Source = resim;
-               
+                YanResim.Source = resim;
+
             }
             if (sayi % 4 == 2)
             {
                 resim = new BitmapImage(new Uri("https://st1.myideasoft.com/idea/bd/02/myassets/slider_pictures/pictures_2_5.png?revision=1584082159"));
 
-                AnasayfaResim.Source = resim;
-               
+                YanResim.Source = resim;
+
 
 
             }
@@ -63,8 +56,8 @@ namespace Hirdavat.Wpf.UC
 
                 resim = new BitmapImage(new Uri("https://st2.myideasoft.com/idea/bd/02/myassets/slider_pictures/pictures_2_7.png?revision=1584082159"));
 
-                AnasayfaResim.Source = resim;
-               
+                YanResim.Source = resim;
+
             }
 
         }
@@ -73,17 +66,6 @@ namespace Hirdavat.Wpf.UC
         {
             resimdegistir();
 
-        }
-
-        private void labelsag_MouseDoubleClick(object sender, MouseButtonEventArgs e)
-        {
-        //    Uc_getir(anasayfagrid, new UC_Anasayfa(sayac));
-        //    sayac++;
-        }
-
-        private void labelsol_MouseDoubleClick(object sender, MouseButtonEventArgs e)
-        {
-           
         }
     }
 }
