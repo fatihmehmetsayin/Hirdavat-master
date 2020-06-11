@@ -40,13 +40,18 @@ namespace Hirdavat.Wpf
             bahcemakineleri();
             hobialetleri();
             kategoriygetir();
-            TimerStart();
+            TimerStartAna();
+            TimerStartyan();
         }
         public int sayac = 0;
-        public void TimerStart()
+        public int sayacyan = 0;
+
+        DispatcherTimer dt = new DispatcherTimer();
+
+        public void TimerStartAna()
         {
 
-            DispatcherTimer dt = new DispatcherTimer();
+
 
             dt.Interval = TimeSpan.FromSeconds(5);
 
@@ -55,28 +60,48 @@ namespace Hirdavat.Wpf
 
 
         }
+        DispatcherTimer dy = new DispatcherTimer();
+        public void TimerStartyan()
+        {
+
+
+
+            dy.Interval = TimeSpan.FromSeconds(3);
+
+            dy.Tick += Dy_Tick;
+            dy.Start();
+
+
+        }
+
+        private void Dy_Tick(object sender, EventArgs e)
+        {
+            Uc_getirYan(gridyan, new UC_Yan(sayacyan));
+            sayacyan++;
+        }
 
         private void Dt_Tick(object sender, EventArgs e)
         {
-          Uc_getirAna(anasayfagrid, new UC_Anasayfa(sayac));
-           
-           Uc_getirYan(gridyan, new UC_Yan(sayac));
+            Uc_getirAna(anasayfagrid, new UC_Anasayfa(sayac));
             sayac++;
+
+
+
         }
 
-        public  void Uc_getirAna(Grid grd, UserControl userControl)
+        public void Uc_getirAna(Grid grd, UserControl userControl)
         {
-            
+
             if (grd.Children.Count > 0)
             {
 
                 grd.Children.Clear();
 
-                anasayfagrid.Children.Add(userControl);
+                grd.Children.Add(userControl);
             }
             else
             {
-                anasayfagrid.Children.Add(userControl);
+                grd.Children.Add(userControl);
             }
 
 
@@ -89,11 +114,11 @@ namespace Hirdavat.Wpf
 
                 grd.Children.Clear();
 
-                gridyan.Children.Add(userControl);
+                grd.Children.Add(userControl);
             }
             else
             {
-                gridyan.Children.Add(userControl);
+                grd.Children.Add(userControl);
             }
 
 
@@ -344,12 +369,24 @@ namespace Hirdavat.Wpf
 
         private void cmbx1_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
+            ProductsModel pm = new ProductsModel();
 
+            pm = (ProductsModel)cmbx1.SelectedItem;
+
+            Uc_getirAna(UrunGoster, new UC_UrunGoster(pm));
+            dt.Stop();
+            dy.Stop();
         }
 
         private void cmbx2_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
+            ProductsModel pm = new ProductsModel();
 
+            pm = (ProductsModel)cmbx2.SelectedItem;
+
+            Uc_getirAna(UrunGoster, new UC_UrunGoster(pm));
+            dt.Stop();
+            dy.Stop();
         }
 
         private void labelsag_MouseDoubleClick(object sender, MouseButtonEventArgs e)
@@ -395,32 +432,114 @@ namespace Hirdavat.Wpf
 
         private void Yan_labelsol_MouseEnter(object sender, MouseEventArgs e)
         {
-
+            Yan_labelsol.FontSize = 35;
         }
 
         private void Yan_labelsol_MouseLeave(object sender, MouseEventArgs e)
         {
+            Yan_labelsol.FontSize = 30;
 
         }
 
         private void Yan_labelsol_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
-
+            Uc_getirYan(gridyan, new UC_Yan(sayacyan));
+            sayacyan--;
         }
 
         private void Yan_labelsag_MouseLeave(object sender, MouseEventArgs e)
         {
-
+            Yan_labelsag.FontSize = 30;
         }
 
         private void Yan_labelsag_MouseEnter(object sender, MouseEventArgs e)
         {
-
+            Yan_labelsag.FontSize = 35;
         }
 
         private void Yan_labelsag_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
+            Uc_getirYan(gridyan, new UC_Yan(sayacyan));
+            sayacyan++;
+        }
 
+        private void cmbx3_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            ProductsModel pm = new ProductsModel();
+
+            pm = (ProductsModel)cmbx3.SelectedItem;
+
+            Uc_getirAna(UrunGoster, new UC_UrunGoster(pm));
+            dt.Stop();
+            dy.Stop();
+        }
+
+        private void cmbx4_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            ProductsModel pm = new ProductsModel();
+
+            pm = (ProductsModel)cmbx4.SelectedItem;
+
+            Uc_getirAna(UrunGoster, new UC_UrunGoster(pm));
+            dt.Stop();
+            dy.Stop();
+        }
+
+        private void cmbx5_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            ProductsModel pm = new ProductsModel();
+
+            pm = (ProductsModel)cmbx5.SelectedItem;
+
+            Uc_getirAna(UrunGoster, new UC_UrunGoster(pm));
+            dt.Stop();
+            dy.Stop();
+        }
+
+        private void cmbx6_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            ProductsModel pm = new ProductsModel();
+
+            pm = (ProductsModel)cmbx6.SelectedItem;
+
+            Uc_getirAna(UrunGoster, new UC_UrunGoster(pm));
+            dt.Stop();
+            dy.Stop();
+        }
+
+        private void cmbx7_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            ProductsModel pm = new ProductsModel();
+
+            pm = (ProductsModel)cmbx7.SelectedItem;
+
+            Uc_getirAna(UrunGoster, new UC_UrunGoster(pm));
+            dt.Stop();
+            dy.Stop();
+        }
+
+        private void cmbx8_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            ProductsModel pm = new ProductsModel();
+
+            pm = (ProductsModel)cmbx3.SelectedItem;
+
+            Uc_getirAna(UrunGoster, new UC_UrunGoster(pm));
+            dt.Stop();
+            dy.Stop();
+        }
+
+        private void Image_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            if (e.ChangedButton == MouseButton.Left || e.ChangedButton == MouseButton.Right)
+
+            {
+                UrunGoster.Children.Clear();
+                dy.Start();
+                dt.Start();
+
+
+            }
         }
     }
 }

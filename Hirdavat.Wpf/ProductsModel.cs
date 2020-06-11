@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Hirdavat.Wpf
 {
-    class ProductsModel
+     public class ProductsModel
     {
 
 
@@ -15,6 +15,7 @@ namespace Hirdavat.Wpf
         public int CategoryId { get; set; }
         public bool IsDeleted { get; set; }
         public string InnerBarCode { get; set; }
+        public string Url { get; set; }
 
         //EntityFrameWork Category üzerinde değişiklik olduğunda izleme yapabilecek
         public virtual CategoryModel Category { get; set; }

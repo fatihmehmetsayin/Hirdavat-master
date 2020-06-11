@@ -10,6 +10,8 @@
         Title="MainWindow" Height="900" Width="1200" HorizontalAlignment="Left" ResizeMode="CanResize" WindowState="Maximized" WindowStartupLocation="CenterScreen">
 
     <Grid>
+
+
         <Grid.RowDefinitions>
             <RowDefinition>
 
@@ -94,7 +96,17 @@
         </Grid.ColumnDefinitions>
 
 
-        <Border Grid.Column="0" Grid.Row="3"></Border>
+        <Border  Grid.Column="0" Grid.Row="3"></Border>
+
+
+        <Border  Panel.ZIndex="1" Grid.Row="4" Grid.RowSpan="8" Grid.Column="1" Grid.ColumnSpan="8">
+            <Grid   x:Name="UrunGoster">
+               
+            </Grid>
+        </Border>
+
+
+
         <Border Background="#222736" Grid.ColumnSpan="10" ></Border>
         <Border Grid.Row="1" Background="#084b8f" Grid.ColumnSpan="10" Grid.RowSpan="2" ></Border>
         <Border Grid.Column="4" Grid.ColumnSpan="2" Grid.Row="1" Grid.RowSpan="2">
@@ -119,7 +131,9 @@
 
         </Border>
 
-        <Image HorizontalAlignment="Right" Grid.Row="1" Grid.Column="1" Grid.RowSpan="2" Grid.ColumnSpan="2" Source="C:\Users\pc\Desktop\Hirdavat-master\Hirdavat-master\Hirdavat.Wpf\Picture\Logo.JPG"></Image>
+        <Image HorizontalAlignment="Right" Grid.Row="1" Grid.Column="1" Grid.RowSpan="2" Grid.ColumnSpan="2" Source="C:\Users\pc\Desktop\Hirdavat-master\Hirdavat-master\Hirdavat.Wpf\Picture\Logo.JPG"  MouseDown="Image_MouseDown" >
+           
+        </Image>
 
         <Label Content="Şubat Fırsatları İçin Tıklayın!"  HorizontalAlignment="Right" VerticalAlignment="Center"  Grid.ColumnSpan="2" Foreground="#FFF3E9E9"  Grid.Column="1" Grid.Row="0" />
 
@@ -131,7 +145,7 @@
 
         <Label VerticalAlignment="Center" HorizontalAlignment="Left" Grid.Column="8" Margin="10,0,0,0" Content="İLETİŞİM" BorderThickness="2" BorderBrush="White"   Foreground="White" Background="#FF222736" FontFamily="Arial Black" FontSize="11" FontWeight="Bold"/>
 
-        <Border x:Name="bdr_anasayfa" Grid.Column="1" Grid.ColumnSpan="6" Background="White"  Grid.Row="4" Grid.RowSpan="8" >
+        <Border  x:Name="bdr_anasayfa" Grid.Column="1" Grid.ColumnSpan="6" Background="White"  Grid.Row="4" Grid.RowSpan="8" >
             <Grid  >
 
                 <Grid.ColumnDefinitions>
@@ -166,7 +180,7 @@
             </Grid>
 
         </Border>
-        <Border Background="Black" Grid.Column="7" Grid.ColumnSpan="2" Grid.Row="4"
+        <Border  Grid.Column="7" Grid.ColumnSpan="2" Grid.Row="4"
                 Grid.RowSpan="8">
 
             <Grid>
@@ -191,9 +205,12 @@
                     <RowDefinition></RowDefinition>
                     <RowDefinition></RowDefinition>
                 </Grid.RowDefinitions>
-                <Label Background="AliceBlue" Grid.Row="3" MouseDoubleClick="Yan_labelsol_MouseDoubleClick"  Name="Yan_labelsol" Content=" &lt;" FontSize="30" FontWeight="Black"  VerticalAlignment="Bottom" HorizontalAlignment="Center" MouseEnter="Yan_labelsol_MouseEnter" MouseLeave="Yan_labelsol_MouseLeave" Margin="0,0,0,5" />
+                <Image Stretch="Fill" Grid.Column="1" Margin="0,2,0,0" Grid.ColumnSpan="6" Grid.Row="0" Source="C:\Users\pc\Desktop\Hirdavat-master\Hirdavat-master\Hirdavat.Wpf\Picture\firsat24.JPG">
 
-                <Label  Grid.Column="7"  Grid.Row="3"  Background="AliceBlue" MouseDoubleClick="Yan_labelsag_MouseDoubleClick" Name="Yan_labelsag" Content=" &gt;" FontSize="30" FontWeight="Black" MouseLeave="Yan_labelsag_MouseLeave" MouseEnter="Yan_labelsag_MouseEnter"  VerticalAlignment="Center" HorizontalContentAlignment="Right">
+                </Image>
+                <Label Grid.Row="3" MouseDoubleClick="Yan_labelsol_MouseDoubleClick"  Name="Yan_labelsol" Content=" &lt;" FontSize="30" FontWeight="Black"  VerticalAlignment="Bottom" HorizontalAlignment="Center" MouseEnter="Yan_labelsol_MouseEnter" MouseLeave="Yan_labelsol_MouseLeave" Margin="0,0,0,5" />
+
+                <Label  Grid.Column="7"  Grid.Row="3"   MouseDoubleClick="Yan_labelsag_MouseDoubleClick" Name="Yan_labelsag" Content=" &gt;" FontSize="30" FontWeight="Black" MouseLeave="Yan_labelsag_MouseLeave" MouseEnter="Yan_labelsag_MouseEnter"  VerticalAlignment="Center" HorizontalContentAlignment="Right">
                 </Label>
 
                 <Border   Background="White" Grid.Column="1" Grid.ColumnSpan="6"
@@ -225,26 +242,26 @@
                     SelectionChanged="cmbx2_SelectionChanged">
         </ComboBox>
 
-        <ComboBox IsEditable="True" IsReadOnly="True" Text="Akülü Aletler"  Name="cmbx3" Margin="5,10,5,10" Grid.Row="3" Grid.Column="3"
-                  DisplayMemberPath="Name"
-                  ></ComboBox>
+        <ComboBox SelectionChanged="cmbx3_SelectionChanged" IsEditable="True" IsReadOnly="True" Text="Akülü Aletler"  Name="cmbx3" Margin="5,0,5,10" Grid.Row="3" Grid.Column="3"
+                  DisplayMemberPath="Name" Height="32" VerticalAlignment="Bottom"
+                  />
 
         <ComboBox IsEditable="True" IsReadOnly="True" Text="Havalı El Aletleri"  Name="cmbx4" Margin="5,10,5,10" Grid.Row="3" Grid.Column="4"
                   DisplayMemberPath="Name"
-                  ></ComboBox>
+                 SelectionChanged="cmbx4_SelectionChanged" ></ComboBox>
 
         <ComboBox IsEditable="True" IsReadOnly="True" Text="Ölçüm Cihazları"  Name="cmbx5" Margin="5,10,5,10" Grid.Row="3" Grid.Column="5"
                   DisplayMemberPath="Name"
-                  ></ComboBox>
+                  SelectionChanged="cmbx5_SelectionChanged" ></ComboBox>
 
         <ComboBox IsEditable="True" IsReadOnly="True" Text="Bahçe Makineleri"   Name="cmbx6" Margin="5,10,5,10" Grid.Row="3" Grid.Column="6" DisplayMemberPath="Name"
-                  ></ComboBox>
+                 SelectionChanged="cmbx6_SelectionChanged" ></ComboBox>
 
         <ComboBox IsEditable="True" IsReadOnly="True" Text="Hobi Aletleri"  Name="cmbx7" Margin="5,10,5,10" Grid.Row="3" Grid.Column="7" DisplayMemberPath="Name"
-                  ></ComboBox>
+                 SelectionChanged="cmbx7_SelectionChanged" ></ComboBox>
 
         <ComboBox IsEditable="True" IsReadOnly="True" Text="Şubat Fırsatı"  Name="cmbx8" Margin="5,10,5,10" Grid.Row="3" Grid.Column="8" DisplayMemberPath="Name"
-                  ></ComboBox>
+                 SelectionChanged="cmbx8_SelectionChanged" ></ComboBox>
 
 
 

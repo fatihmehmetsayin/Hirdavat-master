@@ -5,7 +5,7 @@ using System.Text;
 
 namespace Hirdavat.Wpf
 {
-    class CategoryModel
+   public class CategoryModel
     {
                
         public int Id { get; set; }

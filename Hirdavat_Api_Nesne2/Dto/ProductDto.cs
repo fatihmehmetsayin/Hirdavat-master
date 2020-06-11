@@ -20,6 +20,7 @@ namespace Hirdavat_Api_Nesne2.Dto
         public decimal Price { get; set; }
 
         public int CategoryId { get; set; }
+        public string Url { get; set; }
 
     }
 }

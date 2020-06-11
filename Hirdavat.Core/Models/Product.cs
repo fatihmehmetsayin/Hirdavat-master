@@ -14,6 +14,7 @@ namespace Hirdavat.Core.Models
         public int CategoryId { get; set; }
         public bool IsDeleted { get; set; }
         public string InnerBarCode { get; set; }
+        public string Url { get; set; }
 
         //EntityFrameWork Category üzerinde değişiklik olduğunda izleme yapabilecek
         public virtual Category Category { get; set; }
